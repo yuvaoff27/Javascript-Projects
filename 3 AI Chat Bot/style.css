@@ -1,0 +1,194 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f1f4fb;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Chat toggle button */
+  .chat-toggle {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #7d4eff;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bounce 1.5s infinite; /* Bounce animation */
+    overflow: hidden; /* Prevent any icon background */
+  }
+  
+  /* Remove background and extra spacing from the emoji */
+  .chat-toggle .material-icons.chat-icon {
+    font-size: 28px;
+    background: none; /* Removes background */
+    color: white; /* Make the emoji color white */
+    margin: 0; /* Removes any default margin */
+    padding: 0; /* Ensures no padding is applied */
+  }
+  
+  /* Animation for bounce */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  /* Chatbot window */
+  .chatbot {
+    width: 360px;
+    max-height: 500px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1001;
+  }
+  
+  /* Make draggable */
+  .chatbot.dragging {
+    opacity: 0.8;
+    cursor: move;
+  }
+  
+  .chat-header {
+    background-color: #7d4eff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .close-btn {
+    cursor: pointer;
+  }
+  
+  .chat-body {
+    padding: 15px;
+    height: 300px;
+    overflow-y: auto;
+    background-color: #fff;
+  }
+  
+  .chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    background: #fff;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+  }
+  
+  .chat-input button {
+    background-color: #7d4eff;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    margin-left: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .chat-input button .material-icons {
+    font-size: 20px;
+  }
+  
+  /* Chat messages */
+  .chat {
+    display: flex;
+    margin-bottom: 12px;
+  }
+  
+  .chat.incoming {
+    align-items: flex-start;
+  }
+  
+  .chat.outgoing {
+    justify-content: flex-end;
+  }
+  
+  .chat .material-icons {
+    background-color: #7d4eff;
+    color: white;
+    padding: 8px;
+    border-radius: 70px;
+    margin-right: 10px;
+    padding-top:3px;
+  }
+  
+  .msg {
+    background: #f1f0f0;
+    padding: 10px 14px;
+    border-radius: 10px;
+    max-width: 80%;
+  }
+  
+  .outgoing .msg {
+    background-color: #7d4eff;
+    color: white;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .chat-toggle {
+      bottom: 15px;
+      right: 15px;
+      padding: 12px;
+    }
+  
+    .chatbot {
+      width: 280px;
+    }
+  
+    .chat-header h2 {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .chat-toggle {
+      bottom: 10px;
+      right: 10px;
+      padding: 10px;
+    }
+  
+    .chatbot {
+      width: 260px;
+    }
+  
+    .chat-header h2 {
+      font-size: 14px;
+    }
+  
+    .msg {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+  
